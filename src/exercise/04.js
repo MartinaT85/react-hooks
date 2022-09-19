@@ -5,7 +5,11 @@ import * as React from 'react'
 
 function Board() {
   // 🐨 squares is the state for this component. Add useState for squares
-  const squares = Array(9).fill(null)
+  const [squares, setSquares] = React.useState(() => Array(9).fill(null))
+  // const squares = Array(9).fill(null)
+  squares[0] = 'X'
+  squares[1] ='O'
+  squares[2] = 'X'
 
   // 🐨 We'll need the following bits of derived state:
   // - nextValue ('X' or 'O')
@@ -36,6 +40,8 @@ function Board() {
   function restart() {
     // 🐨 reset the squares
     // 💰 `Array(9).fill(null)` will do it!
+    setSquares(Array(9).fill(null))
+    
   }
 
   function renderSquare(i) {
